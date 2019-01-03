@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TextInput,
   TouchableHighlight,
 } from 'react-native';
@@ -30,6 +31,14 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+           <Image
+              source={
+                __DEV__
+                  ? require('./assets/images/robot-dev.jpeg')
+                  : require('./assets/images/robot-prod.png')
+              }
+              style={styles.welcomeImage}
+            />
         <Text style={styles.title}>People</Text>
         <TextInput
           onChangeText={text => this.updateInput(text)}
@@ -72,6 +81,14 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     padding: 5,
     marginTop: 12,
+  },
+  welcomeImage: {
+    width: 100,
+    height: 80,
+    resizeMode: 'contain',
+    marginTop: 3,
+    marginLeft: -10,
+    alignSelf: 'center',
   },
   button: {
     backgroundColor: '#ff9900',
